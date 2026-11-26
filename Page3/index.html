@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>淄博特种设备智慧检验云平台</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;color:rgba(0,0,0,.65);background:#fff}body{min-height:100vh}.page{min-height:100vh;background:#fff;overflow:hidden}.header{height:100px;padding:15px 40px;position:relative;text-align:center}.brand{position:absolute;top:20px;left:40px;height:32px;display:flex;align-items:center;text-decoration:none}.brand img{width:32px;height:32px;object-fit:contain}.brand-name{height:30px;line-height:30px;margin-left:22px;padding-left:20px;border-left:1px solid #ccc;color:#888;font-size:16px;white-space:nowrap}.header-title{font-size:18px;line-height:32px;color:#2276d2;font-weight:500}.main-bg{min-width:1100px;margin-top:15px;background:url("assets/bg1.png") center top/cover no-repeat;padding:0 0 80px}.main-inner{width:1190px;min-height:510px;margin:0 auto;position:relative;background:url("assets/bg2.png") center/100% 100% no-repeat}.login-card{width:400px;height:440px;position:absolute;top:50px;right:60px;padding:24px;background:#fff;border-radius:4px;box-shadow:0 4px 18px rgba(0,0,0,.08);text-align:left}.login-tabs{position:absolute;right:-70px;top:-25px;width:93px;height:93px;overflow:hidden;z-index:2}.tab-triangle{width:130px;height:130px;margin:-65px 0 0 30px;transform:rotate(45deg);background:#2276d2}.tab-icon{position:absolute;right:13px;top:13px;width:32px;height:32px;color:#fff;font-size:24px;line-height:32px;text-align:center}.login-title{font-size:22px;color:#2276d2;padding-top:24px;margin:0 0 32px;text-align:left}.login-form{width:100%}.field{height:40px;margin-bottom:20px;position:relative}.field input{width:100%;height:40px;border:1px solid #d9d9d9;border-radius:4px;padding:0 12px 0 40px;outline:none;font-size:14px;color:#555;transition:border-color .2s,box-shadow .2s}.field input:focus{border-color:#40a9ff;box-shadow:0 0 0 2px rgba(24,144,255,.12)}.field .icon{position:absolute;left:13px;top:0;height:40px;line-height:40px;color:rgba(0,0,0,.25);font-size:17px}.captcha-row{display:flex;gap:16px;margin-bottom:20px}.captcha-row .field{flex:1;margin:0}.captcha-box{width:96px;height:40px;border:1px solid #d9d9d9;border-radius:4px;background:#f7fbff;color:#2276d2;font-family:Georgia,serif;font-size:21px;font-style:italic;letter-spacing:5px;display:flex;align-items:center;justify-content:center;cursor:pointer;user-select:none}.login-button{width:100%;height:40px;border:0;border-radius:4px;background:#1890ff;color:#fff;font-size:16px;cursor:pointer;transition:background .2s}.login-button:hover{background:#40a9ff}.login-button:active{background:#096dd9}.other{margin-top:24px;line-height:22px;font-size:14px;color:#888}.other a{color:#1890ff;text-decoration:none}.other .register{float:right}.tip{display:none;margin-top:14px;padding:8px 10px;border-radius:3px;color:#8c6d1f;background:#fffbe6;border:1px solid #ffe58f;font-size:13px}.footer{width:100%;padding:28px 16px;text-align:center;color:rgba(0,0,0,.45);font-size:13px}.mobile-note{display:none}
+@media(max-width:1200px){.main-inner{width:100%;max-width:1190px}.login-card{right:5%}}
+@media(max-width:700px){.header{height:76px;padding:12px 16px}.brand{left:16px;top:18px}.brand-name{display:none}.header-title{font-size:15px;padding-left:42px;text-align:left}.main-bg{min-width:0;margin-top:0;padding:25px 16px 55px;background-position:center top}.main-inner{min-height:650px;width:100%;background-position:left top;background-size:auto 100%;border-radius:8px}.login-card{position:relative;top:90px;right:auto;width:100%;max-width:400px;height:auto;min-height:440px;margin:0 auto}.login-tabs{right:-20px}.mobile-note{display:block;position:absolute;left:20px;right:20px;bottom:18px;color:rgba(255,255,255,.8);font-size:12px;text-align:center}.footer{padding:18px 12px}.footer span{display:block}}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="header">
+    <a class="brand" href="javascript:void(0)" aria-label="平台标志"><img src="assets/logo.f5c85443.png" alt="平台标志"><span class="brand-name">淄博特种设备智慧检验云平台</span></a>
+    <div class="header-title">特种设备检验管理系统</div>
+  </header>
+  <main class="main-bg">
+    <div class="main-inner">
+      <section class="login-card" aria-label="账号登录">
+        <div class="login-tabs" title="快速登录"><div class="tab-triangle"></div><div class="tab-icon">▣</div></div>
+        <h1 class="login-title">账号登录</h1>
+        <form class="login-form" id="loginForm">
+          <div class="field"><span class="icon">♙</span><input aria-label="账号" type="text" placeholder="请输入帐户名" autocomplete="off"></div>
+          <div class="field"><span class="icon">▣</span><input aria-label="密码" type="password" placeholder="密码" autocomplete="off"></div>
+          <div class="captcha-row"><div class="field"><span class="icon">⌁</span><input aria-label="验证码" type="text" placeholder="验证码" autocomplete="off"></div><div class="captcha-box" id="captcha" title="点击刷新">A7K3</div></div>
+          <button class="login-button" type="submit">确 定</button>
+          <div class="tip" id="tip">这是界面复刻页，未连接原网站账号系统。</div>
+        </form>
+        <div class="other"><span>技术支持</span><a class="register" href="javascript:void(0)" id="help">使用说明</a></div>
+      </section>
+      <div class="mobile-note">淄博特种设备智慧检验云平台</div>
+    </div>
+  </main>
+  <footer class="footer"><span>淄博特种设备智慧检验云平台</span><span>　特种设备安全检验管理服务</span></footer>
+</div>
+<script>
+(function(){
+ const chars='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+ const cap=document.getElementById('captcha');
+ function refresh(){let s='';for(let i=0;i<4;i++)s+=chars[Math.floor(Math.random()*chars.length)];cap.textContent=s}
+ cap.addEventListener('click',refresh);
+ document.getElementById('loginForm').addEventListener('submit',function(e){e.preventDefault();document.getElementById('tip').style.display='block'});
+ document.getElementById('help').addEventListener('click',function(){alert('此页面仅用于界面展示，不连接原平台账号系统。')});
+})();
+</script>
+</body>
+</html>

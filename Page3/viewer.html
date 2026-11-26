@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>报告预览</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#525659;font-family:Arial,"Microsoft YaHei",sans-serif;color:#fff}.bar{height:52px;background:#323639;display:flex;align-items:center;gap:10px;padding:0 12px;box-shadow:0 1px 4px #222}.bar button{border:0;background:#474b4f;color:#fff;border-radius:3px;height:32px;min-width:34px;font-size:16px;cursor:pointer}.bar button:disabled{opacity:.4}.page-info{display:flex;align-items:center;gap:5px;font-size:14px}.page-info input{width:42px;height:30px;text-align:center;border:0;border-radius:3px}.zoom{margin-left:auto;display:flex;gap:6px}.stage{height:calc(100% - 52px);overflow:auto;text-align:center;padding:24px 12px}.paper{display:inline-block;background:#fff;box-shadow:0 2px 8px #222;line-height:0;max-width:100%}canvas{display:block;max-width:100%;height:auto}.status{position:fixed;left:0;right:0;bottom:0;text-align:center;font-size:12px;color:#ddd;padding:4px;pointer-events:none}@media(max-width:600px){.bar{height:48px;padding:0 6px;gap:5px}.bar button{height:30px;min-width:30px}.stage{height:calc(100% - 48px);padding:12px 4px}.zoom{margin-left:0}}
+</style></head><body>
+<div class="bar"><button id="back" title="返回">‹</button><div class="page-info"><input id="page" value="1" inputmode="numeric"><span>/ <b id="total">-</b></span></div><div class="zoom"><button id="minus">−</button><button id="plus">＋</button><button id="fit">适合</button></div></div>
+<div class="stage"><div class="paper"><canvas id="canvas"></canvas></div></div><div class="status" id="status">正在加载报告…</div>
+<script type="module">
+import * as pdfjsLib from './pdfjs/pdf.min.mjs';
+pdfjsLib.GlobalWorkerOptions.workerSrc='./pdfjs/pdf.worker.min.mjs';
+const params=new URLSearchParams(location.search);const file=params.get('file')||'测试PDF.pdf';
+let pdf=null,current=1,scale=1.25,fitMode=true;
+const canvas=document.getElementById('canvas'),ctx=canvas.getContext('2d'),status=document.getElementById('status');
+async function render(){if(!pdf)return;const page=await pdf.getPage(current);const base=page.getViewport({scale:1});const max=Math.min(1,(document.querySelector('.stage').clientWidth-28)/base.width);const s=fitMode?max:scale;const vp=page.getViewport({scale:s});canvas.width=vp.width;canvas.height=vp.height;await page.render({canvasContext:ctx,viewport:vp}).promise;document.getElementById('page').value=current;status.textContent='报告预览';}
+async function init(){try{pdf=await pdfjsLib.getDocument(file).promise;document.getElementById('total').textContent=pdf.numPages;await render()}catch(e){status.textContent='报告加载失败：'+e.message;}}
+document.getElementById('back').onclick=()=>history.back();document.getElementById('minus').onclick=()=>{fitMode=false;scale=Math.max(.5,scale-.15);render()};document.getElementById('plus').onclick=()=>{fitMode=false;scale=Math.min(3,scale+.15);render()};document.getElementById('fit').onclick=()=>{fitMode=true;render()};document.getElementById('page').onchange=e=>{const n=Math.max(1,Math.min(pdf.numPages,parseInt(e.target.value)||1));current=n;render()};window.addEventListener('resize',()=>fitMode&&render());init();
+</script></body></html>

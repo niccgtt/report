@@ -1,9 +1,0 @@
-name = "my-ai-logo"
-type = "javascript"
-account_id = ""
-workers_dev = false
-route = ""
-zone_id = ""
-
-[env.production]
-vars = { }
